@@ -1,4 +1,3 @@
-
 'use strict'
 
 /**
@@ -57,7 +56,7 @@ function serve (root, opts = {}) {
 
     if (ctx.method !== 'HEAD' && ctx.method !== 'GET') return
     // response is already handled
-    if (ctx.body != null || ctx.status !== 404) return // eslint-disable-line
+    if (ctx.body != undefined || ctx.status !== 404) return; // eslint-disable-line
 
     try {
       await send(ctx, ctx.path, opts)
